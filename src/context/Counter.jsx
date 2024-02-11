@@ -1,11 +1,18 @@
 //creating context here.
-import {createContext} from 'react'
+import {createContext, useState} from 'react'
 
 
 //created context
 export const CounterContext = createContext(null);
 
 
+
+
+//now passing prop value which is important in this step >>> this is actual value which our componets will access
 export const CounterProvider = (props) => {
-    return <CounterContext.Provider>{props.children}</CounterContext.Provider>
+
+    //now making state for the context
+    const [count, setCount] = useState(1);
+
+    return <CounterContext.Provider value={{count, setCount}}>{props.children}</CounterContext.Provider>
 }
