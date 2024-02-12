@@ -4,6 +4,11 @@ import {CartContext} from '../context/Cart'
 const Cart = () => {
     const cart = useContext(CartContext);
 
+    //calculating total
+    const total = cart.items.reduce((acc, amt) => {
+        return acc + amt.price;
+    }, 0)
+
   return (
     <div className='cart'>
         <h1>Cart</h1>
@@ -11,7 +16,7 @@ const Cart = () => {
             <li>{item.name} - ${item.price}</li>
            ))}
 
-        <h4>Total : </h4>
+        <h4>Total : ${total}</h4>
     </div>
   )
 }
