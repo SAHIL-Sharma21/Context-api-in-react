@@ -1,11 +1,15 @@
-import React, {useContext} from 'react'
-import {CartContext} from '../context/Cart'
+import React from 'react'
+import {CartContext, useCart} from '../context/Cart'
 
 
 const Item = ({name, price}) => {
 
-  const cart = useContext(CartContext);
-  
+  // const cart = useContext(CartContext);
+
+  //changing code for optimization
+  const cart = useCart();
+
+
   //adding to cart
   const handleAdd = () => {
     cart.setItems([...cart.items, {name, price}]);

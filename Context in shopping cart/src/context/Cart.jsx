@@ -1,7 +1,14 @@
 // making cart context
-import { createContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 
 export const CartContext = createContext(null);
+
+//best practice code make our custom hook
+export const useCart = () => {
+    const cart = useContext(CartContext);
+    return cart;
+}
+
 
 export const CartProvider = ({children}) => {
 

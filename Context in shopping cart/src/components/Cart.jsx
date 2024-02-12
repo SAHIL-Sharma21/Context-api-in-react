@@ -1,8 +1,11 @@
-import React, {useContext} from 'react'
-import {CartContext} from '../context/Cart'
+import React  from 'react'
+import {useCart} from '../context/Cart'
 
 const Cart = () => {
-    const cart = useContext(CartContext);
+
+
+    //now here using our custom hook
+    const cart = useCart();
 
     //calculating total
     const total = cart.items.reduce((acc, amt) => {
